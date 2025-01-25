@@ -1,0 +1,98 @@
+Login System (Admin-only for simplicity):
+Admin can log in and manage vehicles.
+Add/Edit/Delete Vehicles:
+Admin can perform CRUD (Create, Read, Update, Delete) operations on vehicle data.
+View Vehicle List:
+A dashboard displaying all vehicles.
+Search Vehicles:
+A search bar to filter vehicles by name or registration number.
+Task Breakdown (1-Week Plan)
+
+Day 1: Planning & Setup
+Everyone:
+Discuss and finalize the features.
+Set up GitHub repository and share access.
+Install tools:
+Backend: Node.js + Express.js OR Python Flask.
+Frontend: HTML, CSS, JavaScript.
+Database: SQLite or MySQL.
+
+Day 2: Backend Development
+You (Scrum Master):
+
+Set up basic server and routing.
+Create API endpoints for:
+User login (/login).
+Vehicle management (/vehicles for CRUD).
+Test APIs using Postman.
+Team Member 2 (Backend Support):
+
+Help design backend logic for CRUD operations.
+Set up database schema for vehicles:
+diff
+Copy
+Edit
+Vehicle Table:
+- id (Primary Key)
+- registration_number
+- model
+- status
+- last_serviced_date
+
+Day 3: Frontend Development
+Team Member 1 (Frontend Developer):
+Build a basic login page.
+Create a dashboard with:
+List of vehicles in a table.
+A search bar.
+Add buttons for "Add Vehicle" and "Edit/Delete."
+
+Day 4: Database Integration
+Team Member 3 (Database & Testing):
+Populate the database with sample vehicle data.
+Test API endpoints with the frontend.
+Report bugs and suggest fixes.
+
+Day 5: Integration
+Everyone:
+Integrate frontend with backend (AJAX/Fetch for API calls).
+Test CRUD operations via the UI.
+
+Day 6: Debugging & Final Touches
+Everyone:
+Fix bugs and polish the UI.
+Ensure all features work seamlessly.
+Prepare a basic project documentation (e.g., README.md).
+
+Day 7: Presentation
+Everyone:
+Create a short demo and showcase:
+Login functionality.
+Add/Edit/Delete vehicles.
+Search and view vehicles.
+Discuss what went well and areas for improvement.
+Simplified Role Assignment
+You (Scrum Master + Backend Support):
+
+Oversee progress.
+Write basic backend APIs.
+Test integration and fix backend issues.
+Team Member 1 (Frontend Developer):
+
+Design the login page and dashboard.
+Connect the UI to backend APIs.
+Team Member 2 (Backend Developer):
+
+Write backend logic and routes for CRUD operations.
+Set up a server and database connection.
+Team Member 3 (Database & Tester):
+
+Create database schema and seed data.
+Perform testing and report issues.
+GitHub Task Example
+Task	Assigned To	Status
+Set up GitHub repo	You	Pending
+Create login page UI	Team Member 1	Pending
+Build CRUD API for vehicles	Team Member 2	Pending
+Design vehicle table schema	Team Member 3	Pending
+Integrate frontend and backend	Team Member 1+2	Pending

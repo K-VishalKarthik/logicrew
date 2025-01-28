@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white py-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-xl font-bold">Fleet Management</div>
+            <div>
+                <a href="#" class="mx-2 hover:underline">Dashboard</a>
+                <a href="#" class="mx-2 hover:underline">Vehicles</a>
+                <a href="#" class="mx-2 hover:underline">Drivers</a>
+                <a href="#" class="mx-2 hover:underline">Reports</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Main Content -->
+    <main>
+        <div class="container mx-auto mt-8 px-4">
+            <!-- Dashboard Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="text-lg font-semibold">Total Vehicles</div>
+                    <div class="text-2xl font-bold mt-2 text-blue-600">120</div>
+                </div>
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="text-lg font-semibold">Active Drivers</div>
+                    <div class="text-2xl font-bold mt-2 text-blue-600">45</div>
+                </div>
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="text-lg font-semibold">Pending Deliveries</div>
+                    <div class="text-2xl font-bold mt-2 text-blue-600">23</div>
+                </div>
+                <div class="bg-white shadow rounded-lg p-4">
+                    <div class="text-lg font-semibold">Monthly Revenue</div>
+                    <div class="text-2xl font-bold mt-2 text-blue-600">$12,300</div>
+                </div>
+            </div>
+
+vishal Karthik CSE4, [28-01-2025 12:48]
+<!-- Vehicle Table -->
+            <div class="mt-8">
+                <div class="text-xl font-bold mb-4">Fleet Overview</div>
+                <table class="table-auto w-full bg-white shadow rounded-lg">
+                    <thead>
+                        <tr class="bg-blue-600 text-white">
+                            <th class="py-2 px-4">Vehicle ID</th>
+                            <th class="py-2 px-4">Model</th>
+                            <th class="py-2 px-4">Driver</th>
+                            <th class="py-2 px-4">Status</th>
+                            <th class="py-2 px-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4">VH001</td>
+                            <td class="py-2 px-4">Ford Transit</td>
+                            <td class="py-2 px-4">John Doe</td>
+                            <td class="py-2 px-4 text-green-600">Active</td>
+                            <td class="py-2 px-4">
+                                <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Details</button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4">VH002</td>
+                            <td class="py-2 px-4">Mercedes Sprinter</td>
+                            <td class="py-2 px-4">Jane Smith</td>
+                            <td class="py-2 px-4 text-red-600">Maintenance</td>
+                            <td class="py-2 px-4">
+                                <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            Fleet Management System &copy; 2025. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

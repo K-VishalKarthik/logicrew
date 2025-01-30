@@ -134,8 +134,8 @@
             const user = users.find(u => u.username === username && u.password === password);
 
             if (user) {
-                // Store current user and redirect
-                localStorage.setItem('currentUser', JSON.stringify({ username: user.username }));
+                // Store current user and role, redirect to dashboard
+                localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.username === 'admin' ? 'admin' : 'user' }));
                 window.location.href = 'dashboard.html';
             } else {
                 alert('Invalid username or password.');

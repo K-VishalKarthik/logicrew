@@ -80,6 +80,24 @@
             color: #6b7280;
         }
 
+        /* Table for vehicle data */
+        .vehicle-table {
+            width: 100%;
+            margin-top: 40px;
+            border-collapse: collapse;
+        }
+
+        .vehicle-table th, .vehicle-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .vehicle-table th {
+            background-color: #2563eb;
+            color: white;
+        }
+
         @media (max-width: 1024px) {
             .overview {
                 grid-template-columns: repeat(2, 1fr);
@@ -137,6 +155,23 @@
             </div>
         </div>
 
+        <!-- Vehicle Details Section (Table) -->
+        <h2>Vehicle Details</h2>
+        <table class="vehicle-table" id="vehicleTable">
+            <thead>
+                <tr>
+                    <th>Vehicle ID</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Status</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody id="vehicleTableBody">
+                <!-- Vehicle data rows will be dynamically populated here -->
+            </tbody>
+        </table>
     </div>
 
     <script>
@@ -150,9 +185,9 @@
 
         function updateVehicleStats() {
             const total = vehicles.length;
-            const active = vehicles.filter(v => v.status === 'Active').length;
-            const maintenance = vehicles.filter(v => v.status === 'Maintenance').length;
-            const inactive = vehicles.filter(v => v.status === 'Inactive').length;
+            const active = vehicles.filter(v => v.status.toLowerCase() === 'active').length;
+            const maintenance = vehicles.filter(v => v.status.toLowerCase() === 'maintenance').length;
+            const inactive = vehicles.filter(v => v.status.toLowerCase() === 'inactive').length;
 
             document.getElementById('totalVehicles').textContent = total;
             document.getElementById('activeVehicles').textContent = active;
@@ -165,8 +200,25 @@
             window.location.href = 'index.html';
         }
 
+        function populateVehicleDetails() {
+            const vehicleTableBody = document.getElementById('vehicleTableBody');
+            vehicles.forEach(vehicle => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${vehicle.id || 'N/A'}</td>
+                    <td>${vehicle.make || 'N/A'}</td>
+                    <td>${vehicle.model || 'N/A'}</td>
+                    <td>${vehicle.year || 'N/A'}</td>
+                    <td>${vehicle.status || 'N/A'}</td>
+                    <td>${vehicle.owner || 'N/A'}</td>
+                `;
+                vehicleTableBody.appendChild(row);
+            });
+        }
+
         // Initial render
         updateVehicleStats();
+        populateVehicleDetails();
     </script>
 
 </body>

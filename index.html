@@ -120,32 +120,45 @@
             document.getElementById('registerForm').reset();
             document.getElementById('show-login').click();
         });
+// Handle Login
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
 
-        // Handle Login
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
+    // Get users from localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
 
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
+    // Find user
+    const user = users.find(u => u.username === username && u.password === password);
 
-            // Find user
-            const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+        // Store current user and role, redirect to dashboard
+        localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.username === 'admin' ? 'admin' : 'user' }));
 
-            if (user) {
-                // Store current user and role, redirect to dashboard
-                localStorage.setItem('currentUser', JSON.stringify({ username: user.username, role: user.username === 'admin' ? 'admin' : 'user' }));
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('Invalid username or password.');
-            }
-        });
-
-        // Check if user is already logged in
-        if (localStorage.getItem('currentUser')) {
-            window.location.href = 'dashboard.html';
+        // Check role and redirect accordingly
+        if (user.username === 'admin') {
+            window.location.href = 'admin-dashboard.html'; // Redirect to Admin Dashboard
+        } else {
+            window.location.href = 'dashboard.html'; // Redirect to User Dashboard
         }
+    } else {
+        alert('Invalid username or password.');
+    }
+});
+
+// Check if user is already logged in
+if (localStorage.getItem('currentUser')) {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    // Redirect based on role
+    if (currentUser.role === 'admin') {
+        window.location.href = 'admin-dashboard.html'; // Redirect to Admin Dashboard
+    } else {
+        window.location.href = 'dashboard.html'; // Redirect to User Dashboard
+    }
+}
+
     </script>
 </body>
 </html>

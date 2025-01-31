@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fleet Management | Home</title>
-    
+
     <!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
+
     <style>
         /* Global Styles */
+
+        .hero {
+    padding: 100px 20px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent White */
+    backdrop-filter: blur(10px); /* Blurred Glass Effect */
+    border-radius: 10px;
+    margin: 80px auto 20px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+body, h1, h2, h3, p, a, .btn, nav ul li a {
+    font-family: "Cursive", sans-seriff;
+}
+
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    margin: 15px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +50,27 @@
             background-color: #f3f3fa;
             color: #333;
         }
+        .nav-buttons button:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
 
         /* Navbar */
         .navbar {
@@ -113,10 +161,13 @@
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .section h2 {
+.section:hover {
+  transform: scale(1.1); /* Enlarge the section */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+}
+  .section h2 {
             font-size: 2rem;
             color: #2c3e50;
             margin-bottom: 15px;
@@ -158,6 +209,58 @@
             transform: translateY(0);
         }
 
+/* Styling for the paragraph */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Styling for all span tags inside the paragraph */
+p span {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for all spans inside the paragraph */
+p span:hover {
+  transform: scale(1.1); /* Enlarge the text */
+  color: #e74c3c; /* Default color change on hover */
+}
+
+/* Optional shadow effect when hovering over the span */
+p span:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+/* You can also define custom hover colors for specific spans if needed */
+p span:nth-child(1):hover {
+  color: #f39c12; /* Vehicle performance */
+}
+
+p span:nth-child(2):hover {
+  color: #27ae60; /* Driver behavior */
+}
+
+p span:nth-child(3):hover {
+  color: #c0392b; /* Fuel consumption */
+}
+
+p span:nth-child(4):hover {
+  color: #8e44ad; /* Route optimization */
+}
+
+
     </style>
 </head>
 <body>
@@ -172,15 +275,17 @@
             <a href="#achievements">Achievements</a>
         </nav>
         <div class="nav-buttons">
-            <button class="btn-login">Login</button>
-            <button class="btn-register">Register</button>
-            <button class="btn-support">Support Us</button>
-        </div>
+    <a href="index.html"><button class="btn-login">Login</button></a>
+    <a href="index.html"><button class="btn-register">Register</button></a>
+    <a href="SupportersPage/supportus.html"><button class="btn-support">Support Us</button></a>
+</div>
+
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Welcome to Our Company <font color="BLACK">LOGI</font><font color="#f39c12">CREW</font></h1>
+        <h1>Welcome to Our Company <span style="color:black;">LOGI</span><span style="color:#f39c12;">CREW</span></h1>
+
         <p>Optimizing fleet operations with cutting-edge technology.</p>
     </section>
 
@@ -188,33 +293,33 @@
     <section class="section" id="about">
     <h2>About Us</h2>
     <p>
-        <strong>Welcome to <span style="color:#1abc9c;">LOGICREW</span>,</strong> a leader in 
-        <span style="color:#3498db;">innovative fleet management solutions</span>. We specialize in 
-        optimizing vehicle operations, reducing costs, and enhancing efficiency with the latest 
+        <strong>Welcome to <span style="color:#1abc9c;">LOGICREW</span>,</strong> a leader in
+        <span style="color:#3498db;">innovative fleet management solutions</span>. We specialize in
+        optimizing vehicle operations, reducing costs, and enhancing efficiency with the latest
         <strong>AI-powered analytics</strong> and <strong>real-time tracking systems</strong>.
     </p>
 
     <p>
-        Our technology enables businesses to monitor <span style="color:#e67e22;">vehicle performance</span>, 
-        <span style="color:#2ecc71;">driver behavior</span>, <span style="color:#e74c3c;">fuel consumption</span>, 
-        and <span style="color:#9b59b6;">route optimization</span>. Whether you are a logistics provider, 
-        a delivery service, or a corporate fleet owner, we ensure <strong>maximum productivity and compliance</strong> 
+        Our technology enables businesses to monitor <span style="color:#e67e22;">vehicle performance</span>,
+        <span style="color:#2ecc71;">driver behavior</span>, <span style="color:#e74c3c;">fuel consumption</span>,
+        and <span style="color:#9b59b6;">route optimization</span>. Whether you are a logistics provider,
+        a delivery service, or a corporate fleet owner, we ensure <strong>maximum productivity and compliance</strong>
         with industry standards.
     </p>
 
     <h3 style="margin-top: 20px; color:#2c3e50;"> Why Choose Us?</h3>
     <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
-        <li>✅ <strong>Real-time GPS Tracking</strong> for instant fleet monitoring.</li>
-        <li>✅ <strong>Fuel & Maintenance Optimization</strong> to cut operational costs.</li>
-        <li>✅ <strong>Driver Safety & Performance Monitoring</strong> for improved accountability.</li>
-        <li>✅ <strong>AI-powered Predictive Analytics</strong> for smart decision-making.</li>
-        <li>✅ <strong>Seamless Integration</strong> with existing enterprise systems.</li>
+        <li><strong>Real-time GPS Tracking</strong> for instant fleet monitoring.</li>
+        <li> <strong>Fuel & Maintenance Optimization</strong> to cut operational costs.</li>
+        <li> <strong>Driver Safety & Performance Monitoring</strong> for improved accountability.</li>
+        <li> <strong>AI-powered Predictive Analytics</strong> for smart decision-making.</li>
+        <li><strong>Seamless Integration</strong> with existing enterprise systems.</li>
     </ul>
 
     <p style="margin-top: 20px;">
-        Join <strong><span style="color:#1abc9c;">LOGICREW</span></strong> and experience 
-        the future of <strong>smart, efficient, and cost-effective fleet management</strong>. 
-        <span style="color:#f39c12;">Let's drive your business forward!</span> 
+        Join <strong><span style="color:#1abc9c;">LOGICREW</span></strong> and experience
+        the future of <strong>smart, efficient, and cost-effective fleet management</strong>.
+        <span style="color:#f39c12;">Let's drive your business forward!</span>
     </p>
 </section>
 
@@ -222,46 +327,46 @@
     <!-- Services Section -->
     <section class="section" id="services">
     <h2> Our Services</h2>
-    
+
     <p>
-        At <strong><span style="color:#1abc9c;">LOGICREW</span></strong>, we offer cutting-edge fleet management services 
-        that streamline operations, enhance efficiency, and reduce costs. Our smart solutions help businesses take full control 
-        of their fleet with real-time insights, automation, and AI-powered analytics. 
+        At <strong><span style="color:#1abc9c;">LOGICREW</span></strong>, we offer cutting-edge fleet management services
+        that streamline operations, enhance efficiency, and reduce costs. Our smart solutions help businesses take full control
+        of their fleet with real-time insights, automation, and AI-powered analytics.
     </p>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px;">
-        
-        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+
+        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3> GPS Fleet Tracking</h3>
             <p>Monitor your fleet in real-time with accurate GPS tracking & route history.</p>
         </div>
 
-        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3> Fuel Management</h3>
             <p>Reduce fuel consumption and prevent wastage with AI-driven fuel tracking.</p>
         </div>
 
-        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            <h3>🛠 Predictive Maintenance</h3>
+            <h3>Predictive Maintenance</h3>
             <p>Prevent breakdowns with AI-powered predictive maintenance alerts.</p>
         </div>
 
-        <div style="background: #f39c12; color: white; padding: 20px; border-radius: 10px; width: 250px; 
-        text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 15px;">
+        <div style="background: #f39c12; color: white; padding: 20px; border-radius: 10px; width: 250px;
+        text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3> Data Analytics & Reporting</h3>
             <p>Get detailed performance reports & insights to optimize fleet operations.</p>
         </div>
 
-        <div style="background: #9b59b6; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #9b59b6; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 15px;">
-            <h3>⚠ Driver Safety & Compliance</h3>
+            <h3> Driver Safety & Compliance</h3>
             <p>Ensure driver safety with behavior monitoring, speed alerts, and compliance tracking.</p>
         </div>
 
-        <div style="background: #1abc9c; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #1abc9c; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 15px;">
             <h3> Logistics & Dispatch</h3>
             <p>Automate dispatching and optimize routes for fast and cost-effective deliveries.</p>
@@ -270,8 +375,8 @@
     </div>
 
     <p style="margin-top: 20px;">
-        Our advanced fleet management services are designed to increase efficiency, reduce operational costs, and boost productivity.  
-        <strong>Partner with <span style="color:#1abc9c;">LOGICREW</span></strong> today and experience the future of fleet management! 
+        Our advanced fleet management services are designed to increase efficiency, reduce operational costs, and boost productivity.
+        <strong>Partner with <span style="color:#1abc9c;">LOGICREW</span></strong> today and experience the future of fleet management!
     </p>
 </section>
 
@@ -279,41 +384,41 @@
     <!-- Applications Section -->
     <section class="section" id="applications">
     <h2>Our Applications</h2>
-    
+
     <p>
-        <strong><span style="color:#1abc9c;">LOGICREW</span></strong> provides 
-        next-generation fleet management applications tailored for businesses across industries. 
-        Our smart solutions enhance efficiency, reduce costs, and improve safety, ensuring your 
-        fleet operates at peak performance. 
+        <strong><span style="color:#1abc9c;">LOGICREW</span></strong> provides
+        next-generation fleet management applications tailored for businesses across industries.
+        Our smart solutions enhance efficiency, reduce costs, and improve safety, ensuring your
+        fleet operates at peak performance.
     </p>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px;">
-        
-        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+
+        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>GPS Tracking & Telematics</h3>
             <p>Monitor real-time location, route history, and driver behavior with advanced GPS tracking.</p>
         </div>
 
-        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>Fuel & Cost Optimization</h3>
             <p>Reduce fuel wastage and operational expenses with AI-powered analytics.</p>
         </div>
 
-        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>Logistics & Delivery Tracking</h3>
             <p>Enhance efficiency with automated dispatching, route optimization, and real-time ETA updates.</p>
         </div>
 
-        <div style="background: #f39c12; color: white; padding: 20px; border-radius: 10px; width: 250px; 
-        text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 15px;">
-            <h3>⚠ Driver Safety & Compliance</h3>
+        <div style="background: #f39c12; color: white; padding: 20px; border-radius: 10px; width: 250px;
+        text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); ">
+            <h3> Driver Safety & Compliance</h3>
             <p>Ensure safety with automated alerts, speed tracking, and compliance monitoring.</p>
         </div>
 
-        <div style="background: #9b59b6; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #9b59b6; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 15px;">
             <h3>AI-Powered Predictive Maintenance</h3>
             <p>Reduce downtime with proactive maintenance alerts based on vehicle diagnostics.</p>
@@ -322,37 +427,37 @@
     </div>
 
     <p style="margin-top: 20px;">
-        Our solutions empower businesses with real-time insights, automated operations, and cost-saving technologies.  
-        <strong>Partner with <span style="color:#1abc9c;">LOGICREW</span></strong> and take your fleet management to the next level! 
+        Our solutions empower businesses with real-time insights, automated operations, and cost-saving technologies.
+        <strong>Partner with <span style="color:#1abc9c;">LOGICREW</span></strong> and take your fleet management to the next level!
     </p>
 </section>
 
     <!-- Achievements Section -->
     <section class="section" id="achievements">
     <h2> Our Achievements</h2>
-    
+
     <p>
-        At <strong><span style="color:#1abc9c;">LOGICREW</span></strong>, we take pride in our 
-        <span style="color:#e67e22; font-weight: bold;">outstanding contributions</span> to the fleet management industry. 
-        Our dedication to innovation, efficiency, and customer satisfaction has made us a trusted partner 
+        At <strong><span style="color:#1abc9c;">LOGICREW</span></strong>, we take pride in our
+        <span style="color:#e67e22; font-weight: bold;">outstanding contributions</span> to the fleet management industry.
+        Our dedication to innovation, efficiency, and customer satisfaction has made us a trusted partner
         for businesses worldwide.
     </p>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 20px;">
-        
-        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+
+        <div style="background: #3498db; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>10,000+ Vehicles Managed</h3>
             <p>We have successfully optimized operations for <strong>thousands of fleets</strong> globally.</p>
         </div>
 
-        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>Best Fleet Management Award 2023</h3>
             <p>Recognized as the #1 Fleet Management Solution for our cutting-edge technology.</p>
         </div>
 
-        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px; 
+        <div style="background: #e74c3c; color: white; padding: 20px; border-radius: 10px; width: 250px;
         text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>99% Customer Satisfaction</h3>
             <p>Our clients trust us for reliable, cost-effective, and AI-driven fleet solutions.</p>
@@ -361,7 +466,7 @@
     </div>
 
     <p style="margin-top: 20px;">
-        We continue to push boundaries, embrace innovation, and deliver excellence to businesses across the world. 
+        We continue to push boundaries, embrace innovation, and deliver excellence to businesses across the world.
         Join us and experience the <span style="color:#f39c12; font-weight: bold;">future of fleet management</span>!
     </p>
 </section>

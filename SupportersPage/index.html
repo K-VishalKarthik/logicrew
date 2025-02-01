@@ -10,6 +10,11 @@
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
+
+        // Ensure the page starts at the top on refresh
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
     </script>
 
     <!-- CSS
@@ -45,31 +50,45 @@
     ================================================== -->
     <div id="page" class="s-pagewrap">
 
-        <!-- # site header 
-        ================================================== -->
-        <header style="background-color: #000; text-align: center; padding: 60px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
-            <h1 style="color: #fff; font-size: 8rem; margin: 0; font-family: 'Arial', sans-serif; text-transform: uppercase; letter-spacing: 5px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
-                Supporters
-            </h1>
-        </header>
-        
+        <div class="new_top_home_web">
+            <div class="responsive-container-block bigContainer">
+                <div class="responsive-container-block Container">
+                    <div class="leftSide">
+                        <p class="text-blk heading">
+                            Join Us in Making a Difference – Your Support Fuels Our Mission!
+                        </p>
+                        <p class="text-blk subHeading">
+                            Your
+                            <span class="darkText">Support</span>
+                            always
+                            <span class="darkText">Supports Us</span>
+                        </p>
+                        <a class="getStarted" href="#supporters">
+                            Get Started
+                        </a>
+                    </div>
+                    <div class="rightSide">
+                        <img class="girl" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw63.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         
         <!-- # supporters
         ================================================== -->
         <section id="supporters" class="s-supporters target-section">
-
             <div class="row">
                 <div class="column xl-12">
                     <div class="section-header" data-num="01">
                         <h2 class="text-display-title">Our Supporters</h2>
                     </div> <!-- end section-header -->
-
                     <p class="attention-getter">
                         We are proud to have the support of some of the most influential business leaders and companies in the industry. Their trust and collaboration drive us to innovate and excel in fleet management solutions.
                     </p>
                 </div>
             </div> <!-- end row -->
-
+            
             <div class="row supporters-list">
 
                 <!-- Supporter 1 -->
@@ -228,5 +247,12 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Smooth scrolling when "Get Started" button is clicked
+        document.getElementById("getStarted").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("supporters").scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
 </body>
 </html>

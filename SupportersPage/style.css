@@ -23,7 +23,7 @@
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
-    line-height: 25px;
+    line-height: 25px;      
   }
   
   .new_top_home_web .responsive-container-block {
@@ -480,7 +480,7 @@
 }
 
 .supporter-quote {
-    font-size: 1rem; /* Increased font size */
+    font-size: 1.5rem; /* Increased font size */
     color: #555;
     font-style: italic;
     margin-bottom: 0;
@@ -514,7 +514,7 @@
     }
 
     .supporter-quote {
-        font-size: 1rem; /* Increased font size for smaller screens */
+        font-size: 1.5rem; /* Increased font size for smaller screens */
     }
 }
 

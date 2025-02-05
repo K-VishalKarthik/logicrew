@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-image:url('addve.jpg'); background-repeat:no-repeat;background-size: 100%,100%;}
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        table, th, td { border: 1px solid #e2e8f0; }
+        th, td { padding: 10px; text-align: left; }
+        th { background-color: #b3a2f7; color: white; }
+        .form-container { display: none; margin-bottom: 20px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); max-width: 400px; margin: auto; }
+        button { color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { opacity: 0.8; }
+        #search-vehicle { width: 250px; padding: 6px; border: 1px solid #ddd; border-radius: 5px; }
+        .form-container {
+    display: none;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom right, #ffffff, #e2e8f0); /* Elegant gradient */
+    padding: 20px;
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow for a modern look */
+    max-width: 450px; /* Increased width for better spacing */
+    margin: auto;
+    border: 1px solid #cbd5e1; /* Subtle border */
+}
+
+button {
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600; /* Better button font */
+    transition: background-color 0.2s, transform 0.1s; /* Smooth hover animation */
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+#vehicle-form label {
+    font-weight: bold;
+    color: #334155; /* Neutral color for labels */
+}
+
+.form-container {
+            display: none;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom right, #ffffff, #79a8e6);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+            max-width: 350px;
+            margin: auto;
+            border: 1px solid #cbd5e1;
+        }
+
+        #vehicle-form input, #vehicle-form select {
+            padding: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+    </style>
+</head>
+<body>
+    <h2 class="text-2xl font-bold text-red-600 mb-4 text-center"><font style="color:#e1eeccf8"> Add/Edit Vehicle Details</font></h2>
+    <div class="text-center mb-4">
+        <button onclick="showAddForm()" class="bg-yellow-500 hover:bg-green-700 px-4 py-2 rounded">Add Vehicle</button>
+    </div>
+
+    <div class="form-container" id="vehicle-form">
+        <input type="hidden" id="editing-vehicle-id">
+        <label class="block font-semibold">Vehicle ID:</label>
+        <input type="text" id="vehicle-id" class="border rounded p-2 w-full">
+
+        <label class="block font-semibold mt-2">Registration Number:</label>
+        <input type="text" id="registration-number" class="border rounded p-2 w-full">
+
+        <label class="block font-semibold mt-2">Model:</label>
+        <input type="text" id="vehicle-model" class="border rounded p-2 w-full">
+
+        <label class="block font-semibold mt-2">Status:</label>
+        <select id="vehicle-status" class="border rounded p-2 w-full">
+            <option value="Active">Active</option>
+            <option value="Under Maintenance">Under Maintenance</option>
+        </select>
+
+        <label class="block font-semibold mt-2">Last Serviced Date:</label>
+        <input type="date" id="last-serviced" class="border rounded p-2 w-full">
+
+<button onclick="submitVehicle()" class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Submit</button>
+<button type="button" onclick="cancelForm()" class="mt-4 w-full bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded">Cancel</button>
+
+    </div>
+
+    <label for="search-vehicle" ><b><font color="yellow">SEARCH VEHICLE ID:</font></b></label>
+    <input type="text" id="search-vehicle" placeholder="🔎Search for Vehicle ID..." onkeyup="searchVehicle()">
+    <h1 class="text-2xl font-bold text-600 mb-4 text-center"><font style="color:#b1bd11">Vehicle List</font></h1>
+    
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Vehicle ID</th>
+                <th>Registration Number</th>
+                <th>Model</th>
+                <th>Status</th>
+                <th>Last Serviced Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="vehicle-table-body">
+        </tbody>
+    </table>
+
+    <script>
+        let vehicleData = [];
+    
+        function showAddForm() {
+            document.getElementById("vehicle-form").style.display = "block";
+            document.getElementById("vehicle-id").value = '';
+            document.getElementById("registration-number").value = '';
+            document.getElementById("vehicle-model").value = '';
+            document.getElementById("vehicle-status").value = 'Active';
+            document.getElementById("last-serviced").value = '';
+            document.getElementById("editing-vehicle-id").value = '';
+        }
+    
+        function submitVehicle() {
+            const id = document.getElementById("vehicle-id").value;
+            const regNumber = document.getElementById("registration-number").value;
+            const model = document.getElementById("vehicle-model").value;
+            const status = document.getElementById("vehicle-status").value;
+            const lastServiced = document.getElementById("last-serviced").value;
+            const editingId = document.getElementById("editing-vehicle-id").value;
+    
+            if (!id || !regNumber || !model || !lastServiced) {
+                alert("All fields are required.");
+                return;
+            }
+    
+            if (editingId) {
+                const index = vehicleData.findIndex(v => v.id === editingId);
+                if (index !== -1) {
+                    vehicleData[index] = { id, regNumber, model, status, lastServiced };
+                    updateVehicleTable();
+                    clearForm();
+                }
+            } else {
+                if (vehicleData.some(v => v.id === id)) {
+                    alert("Vehicle ID already exists. Use a different ID.");
+                    return;
+                }
+                vehicleData.push({ id, regNumber, model, status, lastServiced });
+                updateVehicleTable();
+                clearForm();
+            }
+    
+            // **Close the form after submission**
+            document.getElementById("vehicle-form").style.display = "none";
+        }
+    
+        function updateVehicleTable() {
+            const tbody = document.getElementById("vehicle-table-body");
+            tbody.innerHTML = '';
+    
+            vehicleData.forEach(vehicle => {
+                const row = document.createElement("tr");
+    
+                row.innerHTML = `
+                    <td>${vehicle.id}</td>
+                    <td>${vehicle.regNumber}</td>
+                    <td>${vehicle.model}</td>
+                    <td>${vehicle.status}</td>
+                    <td>${vehicle.lastServiced}</td>
+                    <td>
+                        <button class="bg-yellow-500 px-4 py-2 rounded mr-2" onclick="editVehicle('${vehicle.id}')">Edit</button>
+                        <button class="bg-red-500 px-4 py-2 rounded" onclick="deleteVehicle('${vehicle.id}')">Delete</button>
+                    </td>
+                `;
+    
+                tbody.appendChild(row);
+            });
+        }
+    
+        function editVehicle(id) {
+            const vehicle = vehicleData.find(v => v.id === id);
+            if (vehicle) {
+                document.getElementById("vehicle-id").value = vehicle.id;
+                document.getElementById("registration-number").value = vehicle.regNumber;
+                document.getElementById("vehicle-model").value = vehicle.model;
+                document.getElementById("vehicle-status").value = vehicle.status;
+                document.getElementById("last-serviced").value = vehicle.lastServiced;
+                document.getElementById("editing-vehicle-id").value = id;
+                document.getElementById("vehicle-form").style.display = "block";
+            }
+        }
+    
+        function deleteVehicle(id) {
+            vehicleData = vehicleData.filter(v => v.id !== id);
+            updateVehicleTable();
+        }
+    
+        function searchVehicle() {
+            const searchValue = document.getElementById("search-vehicle").value.toLowerCase();
+            const rows = document.querySelectorAll("#vehicle-table-body tr");
+    
+            rows.forEach(row => {
+                const id = row.cells[0].innerText.toLowerCase();
+                row.style.display = id.includes(searchValue) ? "" : "none";
+            });
+        }
+        function submitVehicle() {
+    const id = document.getElementById("vehicle-id").value;
+    const regNumber = document.getElementById("registration-number").value;
+    const model = document.getElementById("vehicle-model").value;
+    const status = document.getElementById("vehicle-status").value;
+    const lastServiced = document.getElementById("last-serviced").value;
+    const editingId = document.getElementById("editing-vehicle-id").value;
+
+    if (!id || !regNumber || !model || !lastServiced) {
+        alert("All fields are required.");
+        return;
+    }
+
+    if (editingId) {
+        const index = vehicleData.findIndex(v => v.id === editingId);
+        if (index !== -1) {
+            vehicleData[index] = { id, regNumber, model, status, lastServiced };
+            updateVehicleTable();
+            clearForm();
+        }
+    } else {
+        if (vehicleData.some(v => v.id === id)) {
+            alert("Vehicle ID already exists. Use a different ID.");
+            return;
+        }
+        vehicleData.push({ id, regNumber, model, status, lastServiced });
+        updateVehicleTable();
+        clearForm();
+    }
+
+    //  Reset form to previous state and hide it after submission
+    document.getElementById("vehicle-form").style.display = "none";
+}
+
+//  Function to clear the form and reset it to its previous state
+function clearForm() {
+    document.getElementById("vehicle-id").value = '';
+    document.getElementById("registration-number").value = '';
+    document.getElementById("vehicle-model").value = '';
+    document.getElementById("vehicle-status").value = 'Active';
+    document.getElementById("last-serviced").value = '';
+    document.getElementById("editing-vehicle-id").value = '';
+}
+// Function to hide the form when clicking cancel
+function cancelForm() {
+    document.getElementById("vehicle-form").style.display = "none";
+    clearForm();  // Reset the form fields
+}
+
+
+    </script>
+    
+</body>
+</html>

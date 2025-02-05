@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header Section -->
+    <header class="text-center py-6">
+        <h1 class="text-3xl font-bold text-white">Contact Us</h1>
+        <p class="text-gray-400 mt-2">Get in touch with us through the options below</p>
+    </header>
+
+    <!-- Contact Options -->
+    <div class="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Live Chat & Help Center -->
+        <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">❓</div>
+            <h2 class="text-xl font-bold">Live Chat & Help Center</h2>
+            <p class="text-gray-400 mt-2">Want a quick answer? Chat with us or browse FAQs.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block">Live Chat Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: 6:00 am–4:00 pm</span>
+            </p>
+            <a href="javascript:void(0)" class="text-blue-500 hover:text-blue-300 mt-2 inline-block" onclick="toggleHelpCenter()">Visit Help Center →</a>
+        </div>
+
+        <!-- Call Us -->
+        <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">📞</div>
+            <h2 class="text-xl font-bold">Call Us</h2>
+            <p class="text-gray-400 mt-2">Need assistance? Call us directly.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block font-bold text-white">+91 7036671402<br>(vishal)</span>
+                <span class="block mt-2">Phone Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: Closed</span>
+            </p>
+        </div>
+
+        <!-- Email Us -->
+        <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">✉️</div>
+            <h2 class="text-xl font-bold">Email Us</h2>
+            <p class="text-gray-400 mt-2">Submit an email, and we'll get back to you soon.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block">Email Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: 6:00 am–4:00 pm</span>
+            </p>
+            <a href="mailto:n210714@rguktn.ac.in" class="text-blue-500 hover:text-blue-300 mt-2 inline-block">Send an Email →</a>
+        </div>
+
+    </div>
+
+    <!-- Help Center Section (Initially Hidden) -->
+    <div id="helpCenter" class="hidden max-w-6xl mx-auto px-4 md:px-8 mt-4 text-center">
+        <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold">Help Center</h2>
+            <p class="text-gray-400 mt-2">Here you can find FAQs, contact support, and more.</p>
+
+            <!-- FAQs Section -->
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold">FAQs</h3>
+                <div class="mt-2">
+                    <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq1')">
+                        How do I add a new vehicle to my fleet?                    </button>
+                    <div id="faq1" class="hidden pl-4">
+                        <p class="text-gray-400 text-sm">To add a vehicle, you typically need to log in to the fleet management portal and input vehicle details such as  Vehicle ID, model,, license plate number, and other relevant data.</p>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq2')">
+                        Can I access fleet data on my phone?                    </button>
+                    <div id="faq2" class="hidden pl-4">
+                        <p class="text-gray-400 text-sm">You can access through your login id and  password.</p>
+                    </div>
+                    <div class="mt-2">
+                        <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq3')">
+                            Is the data secure?</button>                   
+                            <div id="faq3" class="hidden pl-4">
+                            <p class="text-gray-400 text-sm">It uses advanced data encryption your data is more secured.</p>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Contact Support Form -->
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold">Still Need Help?<a href="mailto:n210714@rguktn.ac.in">@MAIL HERE</a></h3>
+                
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // Function to toggle Help Center visibility
+        function toggleHelpCenter() {
+            const helpCenter = document.getElementById('helpCenter');
+            helpCenter.classList.toggle('hidden');
+        }
+
+        // Function to toggle FAQ visibility
+        function toggleFAQ(faqId) {
+            const faq = document.getElementById(faqId);
+            faq.classList.toggle('hidden');
+        }
+    </script>
+    <!-- Footer Section -->
+    <footer class="text-center text-gray-500 py-6">
+        <p>© 2025 LOGI<font color="yellow">CREW</font>. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

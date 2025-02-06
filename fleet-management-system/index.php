@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         /* Global Styles */
@@ -109,17 +110,17 @@ body, h1, h2, h3, p, a, .btn, nav ul li a {
         .nav-buttons button:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .navbar {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        padding: 5px;
     }
 
     .nav-links {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 8px;
     }
 
     .nav-buttons {
@@ -133,7 +134,7 @@ body, h1, h2, h3, p, a, .btn, nav ul li a {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
+            padding: 10px 40px;
             background: #2c3e50;
             color: white;
             position: sticky;
@@ -171,7 +172,7 @@ body, h1, h2, h3, p, a, .btn, nav ul li a {
         }
 
         .nav-buttons button {
-            padding: 8px 15px;
+            padding: 8px 10px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -315,13 +316,17 @@ p span:nth-child(3):hover {
 p span:nth-child(4):hover {
   color: #8e44ad; /* Route optimization */
 }
-
+.nav-links {
+    display;flex;
+    gap:5px;
+}
 .nav-links a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
     position: relative;
+    gap:
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
@@ -404,7 +409,11 @@ p span:nth-child(4):hover {
             padding: 0;
             font-size: 1.1rem;
         }
+        img{
+            width:100px;
+            height:auto;
 
+        }
 
 
     </style>
@@ -413,13 +422,15 @@ p span:nth-child(4):hover {
 
     <!-- Navbar -->
     <header class="navbar">
-        <div class="logo">Fleet Management</div>
+        <img src="logo.jpg">
+        <div class="logo">FLEET QUEST</div>
         <nav class="nav-links">
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#applications">Applications</a>
             <a href="#achievements">Achievements</a>
-            <a href="#contactus">Contact Us</a>
+            <a href="#contactus">ContactUs</a>
+
 
         </nav>
        <div class="nav-buttons">
@@ -442,7 +453,7 @@ p span:nth-child(4):hover {
 
     <!-- About Us Section -->
     <section class="section" id="about">
-    <h2>About Us</h2>
+    <h2><span>ABOUT US </span></h2>
     <p>
         <strong>Welcome to <span style="color:#1abc9c;">FLEETQUEST</span>,</strong> a leader in
         <span style="color:#3498db;">innovative fleet management solutions</span>. We specialize in
@@ -478,7 +489,7 @@ p span:nth-child(4):hover {
 
     <!-- Services Section -->
     <section class="section" id="services">
-    <h2> Our Services</h2>
+    <h2> <span>OUR SERVICES</span></h2>
 
     <p>
         At <strong><span style="color:#1abc9c;">FLEETQUEST</span></strong>, we offer cutting-edge fleet management services
@@ -535,7 +546,7 @@ p span:nth-child(4):hover {
 
     <!-- Applications Section -->
     <section class="section" id="applications">
-    <h2>Our Applications</h2>
+    <h2><span>OUR APPLICATIONS<span></h2>
 
     <p>
         <strong><span style="color:#1abc9c;">FLEETQUEST</span></strong> provides
@@ -586,7 +597,7 @@ p span:nth-child(4):hover {
 
     <!-- Achievements Section -->
     <section class="section" id="achievements">
-    <h2> Our Achievements</h2>
+    <h2> <span>OUR ACHIEVEMENTS</h2>
 
     <p>
         At <strong><span style="color:#1abc9c;">FLEETQUEST</span></strong>, we take pride in our
@@ -622,11 +633,112 @@ p span:nth-child(4):hover {
         Join us and experience the <span style="color:#f39c12; font-weight: bold;">future of fleet management</span>!
     </p>
 </section>
+<section class="section" id="contactus">
+<h2><span>CONTACT US</span></h2>
+<p>Have any questions or need assistance? Our team at <strong><span style="color:#1abc9c;">FLEETQUEST</span></strong> is here to help!</p>
+    
+    <!-- Contact Options -->
+    <div class="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Live Chat & Help Center -->
+        <div class="bg-white-700 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">❓</div>
+            <h2 class="text-xl font-bold">Live Chat & Help Center</h2>
+            <p class="text-gray-400 mt-2">Want a quick answer? Chat with us or browse FAQs.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block">Live Chat Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: 6:00 am–4:00 pm</span>
+            </p>
+            <a href="javascript:void(0)" class="text-blue-500 hover:text-blue-300 mt-2 inline-block" onclick="toggleHelpCenter()">Visit Help Center →</a>
+        </div>
+
+        <!-- Call Us -->
+        <div class="bg-white-700 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">📞</div>
+            <h2 class="text-xl font-bold">Call Us</h2>
+            <p class="text-gray-400 mt-2">Need assistance? Call us directly.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block font-bold text-white">+91 7036671402<br>(vishal)</span>
+                <span class="block mt-2">Phone Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: Closed</span>
+            </p>
+        </div>
+
+        <!-- Email Us -->
+        <div class="bg-white-700 p-4 rounded-lg shadow-lg text-center hover:scale-105 hover:bg-gray-700 transform transition duration-300">
+            <div class="text-3xl text-blue-500 mb-4">✉️</div>
+            <h2 class="text-xl font-bold">Email Us</h2>
+            <p class="text-gray-400 mt-2">Submit an email, and we'll get back to you soon.</p>
+            <p class="text-gray-500 mt-2">
+                <span class="block">Email Hours:</span>
+                <span>Mon–Fri: 6:00 am–4:00 pm</span><br>
+                <span>Sat & Sun: 6:00 am–4:00 pm</span>
+            </p>
+            <a href="mailto:n210714@rguktn.ac.in" class="text-blue-500 hover:text-blue-300 mt-2 inline-block">Send an Email →</a>
+        </div>
+
+    </div>
+
+    <!-- Help Center Section (Initially Hidden) -->
+    <div id="helpCenter" class="hidden max-w-6xl mx-auto px-4 md:px-8 mt-4 text-center">
+        <div class="bg-white-800 p-4 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold">Help Center</h2>
+            <p class="text-gray-400 mt-2">Here you can find FAQs, contact support, and more.</p>
+
+            <!-- FAQs Section -->
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold">FAQs</h3>
+                <div class="mt-2">
+                    <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq1')">
+                        How do I add a new vehicle to my fleet?                    </button>
+                    <div id="faq1" class="hidden pl-4">
+                        <p class="text-gray-400 text-sm">To add a vehicle, you typically need to log in to the fleet management portal and input vehicle details such as  Vehicle ID, model,, license plate number, and other relevant data.</p>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq2')">
+                        Can I access fleet data on my phone?                    </button>
+                    <div id="faq2" class="hidden pl-4">
+                        <p class="text-gray-400 text-sm">You can access through your login id and  password.</p>
+                    </div>
+                    <div class="mt-2">
+                        <button class="w-full text-left text-blue-500" onclick="toggleFAQ('faq3')">
+                            Is the data secure?</button>                   
+                            <div id="faq3" class="hidden pl-4">
+                            <p class="text-gray-400 text-sm">It uses advanced data encryption your data is more secured.</p>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Contact Support Form -->
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold">Still Need Help?<font color="#e67e22"><a href="mailto:n210714@rguktn.ac.in">@MAIL HERE</a></font></h3>
+                
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // Function to toggle Help Center visibility
+        function toggleHelpCenter() {
+            const helpCenter = document.getElementById('helpCenter');
+            helpCenter.classList.toggle('hidden');
+        }
+
+        // Function to toggle FAQ visibility
+        function toggleFAQ(faqId) {
+            const faq = document.getElementById(faqId);
+            faq.classList.toggle('hidden');
+        }
+    </script>
+</section>
 
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy;© 2025 FLEET<font color="yellow">QUEST</font>. All rights reserved.</p>
+        <p><font color="white">© 2025 FLEET<font color="yellow">QUEST</font>. All rights reserved</font>.</p>
     </footer>
 
     <script>

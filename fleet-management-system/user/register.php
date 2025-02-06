@@ -17,8 +17,6 @@ if (isset($_POST['register'])) {
     }
 }
 ?>
-
-<!-- HTML Form with CSS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

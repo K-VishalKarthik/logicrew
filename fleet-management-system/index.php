@@ -316,6 +316,96 @@ p span:nth-child(4):hover {
   color: #8e44ad; /* Route optimization */
 }
 
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #f4a261; /* Highlight color on hover */
+    transform: translateY(-3px); /* Moves the link slightly up */
+}
+
+.nav-links a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background: #f4a261;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Underline expands on hover */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.logo:hover {
+    color: #f4a261; /* Change to any color you prefer */
+}
+.hero {
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+
+        .quest {
+            display: inline-block;
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        
+        .section {
+            padding: 40px;
+            background-color: #ecf0f1;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        h2:hover,h3:hover {
+            color: #1abc9c; /* Change color on hover */
+            transform: scale(1.05); /* Slightly increase size */
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+        }
+
+
 
     </style>
 </head>
@@ -329,6 +419,8 @@ p span:nth-child(4):hover {
             <a href="#services">Services</a>
             <a href="#applications">Applications</a>
             <a href="#achievements">Achievements</a>
+            <a href="#contactus">Contact Us</a>
+
         </nav>
        <div class="nav-buttons">
     <button class="btn-login" onclick="window.location.href='user/login.php'">Login</button>
@@ -339,15 +431,17 @@ p span:nth-child(4):hover {
 
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <h1>Welcome to Our Company <span style="color:black;">FLEET</span><span style="color:#f39c12;">QUEST</span></h1>
-
-        <p>Optimizing fleet operations with cutting-edge technology.</p>
-    </section>
+    <h1>
+        Welcome to Our Company 
+        <span style="color:black;">FLEET</span>
+        <span id="dynamicQuest" class="quest" style="color:#f39c12;">QUEST</span>
+    </h1>
+    <p>Optimizing fleet operations with cutting-edge technology.</p>
+</section>>
 
     <!-- About Us Section -->
-    <section class="section" id="about"> 
+    <section class="section" id="about">
     <h2>About Us</h2>
     <p>
         <strong>Welcome to <span style="color:#1abc9c;">FLEETQUEST</span>,</strong> a leader in
@@ -364,21 +458,22 @@ p span:nth-child(4):hover {
         with industry standards.
     </p>
 
-    <h3 style="margin-top: 20px; color:#2c3e50;"> Why Choose Us?</h3>
-    <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
+    <h3 style="margin-top: 20px; color:#2c3e50;">Why Choose Us?</h3>
+    <ul>
         <li><strong>Real-time GPS Tracking</strong> for instant fleet monitoring.</li>
-        <li> <strong>Fuel & Maintenance Optimization</strong> to cut operational costs.</li>
-        <li> <strong>Driver Safety & Performance Monitoring</strong> for improved accountability.</li>
-        <li> <strong>AI-powered Predictive Analytics</strong> for smart decision-making.</li>
+        <li><strong>Fuel & Maintenance Optimization</strong> to cut operational costs.</li>
+        <li><strong>Driver Safety & Performance Monitoring</strong> for improved accountability.</li>
+        <li><strong>AI-powered Predictive Analytics</strong> for smart decision-making.</li>
         <li><strong>Seamless Integration</strong> with existing enterprise systems.</li>
     </ul>
 
-    <p style="margin-top: 20px;">
+    <p style="margin-top: 20px; text-align: center;">
         Join <strong><span style="color:#1abc9c;">FLEETQUEST</span></strong> and experience
         the future of <strong>smart, efficient, and cost-effective fleet management</strong>.
         <span style="color:#f39c12;">Let's drive your business forward!</span>
     </p>
 </section>
+
 
 
     <!-- Services Section -->
@@ -531,7 +626,7 @@ p span:nth-child(4):hover {
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Fleet Management Company. All Rights Reserved.</p>
+        <p>&copy;© 2025 FLEET<font color="yellow">QUEST</font>. All rights reserved.</p>
     </footer>
 
     <script>
@@ -552,6 +647,17 @@ p span:nth-child(4):hover {
                 }
             });
         });
+        // Replace "QUEST" with "QUEST" each time the page is refreshed
+    const fleetName = "QUEST"; // Replace this with the desired fleet name
+    document.getElementById("dynamicQuest").textContent = fleetName;
+
+    // Optional: Add a slight delay before showing the animation
+    window.onload = () => {
+        const questElement = document.getElementById("dynamicQuest");
+        questElement.classList.remove('quest');
+        void questElement.offsetWidth; // Trigger reflow
+        questElement.classList.add('quest');
+    };
     </script>
 
 </body>

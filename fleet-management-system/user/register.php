@@ -1,5 +1,6 @@
 <?php
 include('../includes/config.php');
+$error_message = ''; // Variable to store the error message
 
 if (isset($_POST['register'])) {
     $username = $_POST['username'];
@@ -14,8 +15,8 @@ if (isset($_POST['register'])) {
     $result = $stmt_check_email->get_result();
 
     if ($result->num_rows > 0) {
-        // Email already exists, show error
-        echo "<p style='color: red;'>Error: The email '$email' is already taken. Please use a different email.</p>";
+        // Email already exists, store the error message
+        $error_message = "Error: The email '$email' is already taken. Please use a different email.";
     } else {
         // If email doesn't exist, proceed with registration
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -50,7 +51,7 @@ if (isset($_POST['register'])) {
         /* Body */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1d2b64 0%, #f8cdda 100%);
+            background-color: #f0f4f8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -72,7 +73,7 @@ if (isset($_POST['register'])) {
 
         .form-container h2 {
             font-size: 28px;
-            color: #333;
+            color: #1e3d58;
             margin-bottom: 30px;
             font-weight: bold;
         }
@@ -90,8 +91,8 @@ if (isset($_POST['register'])) {
         }
 
         .form-container input:focus {
-            border-color: #5c6bc0;
-            background-color: #f1f5f9;
+            border-color: #1e3d58;
+            background-color: #e9eff3;
             outline: none;
         }
 
@@ -99,7 +100,7 @@ if (isset($_POST['register'])) {
         .form-container button {
             width: 100%;
             padding: 15px;
-            background-color: #5c6bc0;
+            background-color: #1e3d58;
             border: none;
             color: white;
             font-size: 18px;
@@ -110,11 +111,11 @@ if (isset($_POST['register'])) {
         }
 
         .form-container button:hover {
-            background-color: #3f4c8a;
+            background-color: #165080;
         }
 
         /* Error Message */
-        .form-container p {
+        .form-container .error-message {
             font-size: 14px;
             color: #f44336;
             margin-top: 20px;
@@ -133,7 +134,7 @@ if (isset($_POST['register'])) {
         }
 
         .form-container p a {
-            color: #5c6bc0;
+            color: #1e3d58;
             text-decoration: none;
         }
 
@@ -169,6 +170,12 @@ if (isset($_POST['register'])) {
             <input type="password" name="password" id="password" placeholder="Password" required>
             <button type="submit" name="register">Register</button>
         </form>
+
+        <!-- Show error message if email already exists -->
+        <?php if ($error_message) : ?>
+            <p class="error-message"><?php echo $error_message; ?></p>
+        <?php endif; ?>
+
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
 
@@ -194,7 +201,6 @@ if (isset($_POST['register'])) {
             return true;
         }
     </script>
-
 
 </body>
 </html>

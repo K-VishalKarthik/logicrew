@@ -99,7 +99,7 @@ body, h1, h2, h3, p, a, .btn, nav ul li a {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: cursive;
+            font-family: Sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -271,7 +271,7 @@ p {
   font-size: 16px;
   line-height: 1.6;
   color: #333;
-  font-family: cursive;
+  font-family: Sans-serif;
 }
 
 /* Styling for all span tags inside the paragraph */

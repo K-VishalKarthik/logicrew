@@ -81,7 +81,7 @@
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 body, h1, h2, h3, p, a, .btn, nav ul li a {
-    font-family: "Cursive";
+    font-family: "Sans-serif";
 }
 
 

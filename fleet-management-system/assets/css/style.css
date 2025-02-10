@@ -1,0 +1,25 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Fleet Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="user/dashboard.php">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user/vehicle.php">Add Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user/profile.php">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user/logout.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
